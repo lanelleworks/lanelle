@@ -1,0 +1,6 @@
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# source files kept locally after compression
+assets/work/shots/_originals/

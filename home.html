@@ -1,0 +1,1193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lanelle Works — We bring you customers</title>
+<meta name="description" content="Lanelle Works is an all-in-one growth agency in Jakarta. Website, Meta ads, content and retention built and run as one machine, not four vendors who never talk.">
+<meta name="theme-color" content="#05080F">
+<meta property="og:title" content="Lanelle Works — We bring you customers">
+<meta property="og:description" content="Website, ads, content and retention, built and run as one machine. Jakarta, Indonesia.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://lanelle.works/">
+<link rel="icon" href="assets/lanelle-mark.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Schibsted+Grotesk:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ground:#05080F;
+  --ground-2:#080C18;
+  --ink:#F5F8FF;
+  --ink-cool:#9DB2D6;
+  --ink-dim:#6E82A6;
+  --accent:#4B8FFF;
+  --glow:#7BA9FF;
+  --hl:#7499FF;
+  --deep:#1D4FBF;
+  --gold:#FFD27B;
+  --hair:rgba(123,169,255,0.18);
+  --hair-strong:rgba(123,169,255,0.34);
+  --panel:rgba(123,169,255,0.045);
+  --sans:"Schibsted Grotesk",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+  --serif:"Cinzel",Georgia,serif;
+  --ease:cubic-bezier(.16,1,.3,1);
+  --spring:cubic-bezier(.32,1.28,.42,1);
+  --gut:clamp(20px,5vw,64px);
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+body{
+  font-family:var(--sans);font-weight:400;font-size:17px;line-height:1.6;
+  color:var(--ink);background:var(--ground);
+  overflow-x:hidden;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+}
+
+/* ambience: layered atmosphere, fixed so the page falls through it */
+.sky{position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:
+    radial-gradient(64% 38% at 78% 2%, rgba(75,143,255,0.17) 0%, transparent 62%),
+    radial-gradient(112% 56% at 8% 96%, rgba(29,79,191,0.26) 0%, transparent 64%),
+    radial-gradient(46% 26% at 50% 44%, rgba(75,143,255,0.07) 0%, transparent 72%);
+}
+.grain{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.5;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='.35'/%3E%3C/svg%3E")}
+
+/* browser surfaces themed from the palette */
+::selection{background:rgba(75,143,255,.32);color:#fff}
+::-webkit-scrollbar{width:11px;height:11px}
+::-webkit-scrollbar-track{background:#04060C}
+::-webkit-scrollbar-thumb{background:rgba(123,169,255,.22);border-radius:99px;border:3px solid #04060C}
+::-webkit-scrollbar-thumb:hover{background:rgba(123,169,255,.4)}
+html{scrollbar-color:rgba(123,169,255,.26) #04060C;scrollbar-width:thin}
+:focus-visible{outline:2px solid var(--glow);outline-offset:3px;border-radius:3px}
+a{color:inherit;text-underline-offset:.28em;text-decoration-thickness:1px}
+
+main,header,footer{position:relative;z-index:2}
+.wrap{width:100%;max-width:1180px;margin:0 auto;padding-inline:var(--gut)}
+
+/* ─── type ─── */
+.display{font-size:clamp(2.6rem,6.6vw,5.5rem);font-weight:400;line-height:1.02;letter-spacing:-.035em;text-wrap:balance}
+/* highlight: light falling down the word, white at the cap into blue at the baseline.
+   Solid --hl is the floor; the blend is layered on only where background-clip works. */
+.hl{color:var(--hl)}
+@supports ((-webkit-background-clip:text) or (background-clip:text)){
+  .hl{
+    background-image:linear-gradient(174deg,#FFFFFF 3%,#D2E1FF 34%,#8AABFF 66%,#6E9BFF 86%,#5B87F2 100%);
+    -webkit-background-clip:text;background-clip:text;
+    -webkit-text-fill-color:transparent;color:transparent;
+  }
+}
+@media (forced-colors:active){
+  .hl{background-image:none;color:CanvasText;-webkit-text-fill-color:CanvasText}
+}
+h2{font-size:clamp(1.9rem,3.9vw,3.05rem);font-weight:400;line-height:1.1;letter-spacing:-.03em;text-wrap:balance}
+h3{font-size:1.1875rem;font-weight:500;letter-spacing:-.012em;line-height:1.3}
+.lead{font-size:clamp(1.0625rem,1.55vw,1.28rem);line-height:1.55;color:var(--ink-cool);max-width:56ch}
+.prose{color:var(--ink-cool);max-width:64ch}
+.label{font-size:.6875rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-dim)}
+.num{font-variant-numeric:tabular-nums;font-feature-settings:"tnum" 1}
+
+/* ─── header: a floating island that collapses to a mark on scroll ─── */
+header{position:fixed;top:clamp(12px,2.1vw,20px);left:0;right:0;z-index:60;
+  display:flex;justify-content:center;pointer-events:none;padding-inline:var(--gut)}
+.island{
+  pointer-events:auto;position:relative;display:flex;align-items:center;
+  height:54px;padding:0 7px 0 17px;gap:clamp(10px,2vw,26px);
+  border:1px solid var(--hair);border-radius:99px;
+  background:rgba(7,11,22,.74);
+  backdrop-filter:blur(18px) saturate(150%);-webkit-backdrop-filter:blur(18px) saturate(150%);
+  box-shadow:0 12px 38px -16px rgba(2,5,12,.95);
+  overflow:hidden;contain:layout paint;will-change:width;
+  transition:width .6s var(--spring),padding .6s var(--spring),
+             border-color .4s var(--ease),background .4s var(--ease),transform .3s var(--ease)}
+.island.collapsed{width:54px;padding:0;cursor:pointer}
+.island.collapsed:hover{transform:scale(1.07);border-color:var(--hair-strong);background:rgba(12,20,40,.86)}
+.island.collapsed:active{transform:scale(.95)}
+
+.brand{display:flex;align-items:center;gap:11px;text-decoration:none;flex-shrink:0}
+.brand img{width:22px;height:22px;object-fit:contain;filter:drop-shadow(0 2px 10px rgba(75,143,255,.5))}
+.brand span{font-family:var(--serif);font-weight:600;font-size:1rem;letter-spacing:.15em;white-space:nowrap}
+nav{display:none;gap:clamp(14px,2.2vw,28px)}
+@media (min-width:620px){nav{display:flex}}
+nav a{font-size:.9rem;color:var(--ink-cool);text-decoration:none;white-space:nowrap;transition:color .25s var(--ease)}
+nav a:hover{color:var(--ink)}
+.hdr-right{display:flex;align-items:center;gap:12px;margin-left:auto}
+
+/* island contents stagger out on collapse and back in on expand */
+.isl-fade{transition:opacity .3s var(--ease),transform .46s var(--ease)}
+.island .brand{transition-delay:.17s}
+.island nav{transition-delay:.21s}
+.island .hdr-right{transition-delay:.25s}
+.island.collapsed .isl-fade{opacity:0;transform:translateX(-16px);pointer-events:none}
+.island.collapsed .brand{transition-delay:0s}
+.island.collapsed nav{transition-delay:.04s}
+.island.collapsed .hdr-right{transition-delay:.07s}
+
+/* the collapsed face: the Lanelle mark, and the whole pill becomes one button */
+.isl-open{position:absolute;inset:0;display:grid;place-items:center;border:0;padding:0;
+  background:none;cursor:pointer;opacity:0;pointer-events:none;
+  transform:scale(.72);transition:opacity .26s var(--ease),transform .44s var(--spring)}
+.island.collapsed .isl-open{opacity:1;transform:scale(1);pointer-events:auto;transition-delay:.15s}
+.isl-open img{width:21px;height:21px;object-fit:contain;filter:drop-shadow(0 2px 10px rgba(75,143,255,.6))}
+
+@media (prefers-reduced-motion:reduce){
+  .island,.isl-fade,.isl-open{transition-duration:.001s!important;transition-delay:0s!important}
+  .island.collapsed:hover,.island.collapsed:active{transform:none}
+}
+
+/* language toggle */
+.lang{display:inline-flex;border:1px solid var(--hair);border-radius:99px;padding:2px;background:rgba(123,169,255,.05)}
+.lang button{font:inherit;font-size:.72rem;font-weight:500;letter-spacing:.09em;
+  background:none;border:0;color:var(--ink-dim);cursor:pointer;padding:5px 11px;border-radius:99px;
+  transition:color .25s var(--ease),background .25s var(--ease)}
+.lang button[aria-pressed="true"]{background:rgba(123,169,255,.16);color:var(--ink)}
+.lang button:hover{color:var(--ink)}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;
+  font:inherit;font-size:.9375rem;font-weight:500;letter-spacing:-.005em;
+  padding:13px 22px;border-radius:99px;border:1px solid transparent;cursor:pointer;text-decoration:none;
+  transition:transform .3s var(--ease),box-shadow .3s var(--ease),background .3s var(--ease),border-color .3s var(--ease),color .3s var(--ease)}
+.btn-primary{background:linear-gradient(180deg,#5D9BFF,#2F6FE0);color:#020509;
+  box-shadow:0 1px 0 rgba(255,255,255,.28) inset,0 8px 26px -8px rgba(75,143,255,.75)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 1px 0 rgba(255,255,255,.34) inset,0 16px 38px -10px rgba(75,143,255,.9)}
+.btn-primary:active{transform:translateY(0)}
+.btn-ghost{border-color:var(--hair-strong);color:var(--ink);background:rgba(123,169,255,.05)}
+.btn-ghost:hover{background:rgba(123,169,255,.12);border-color:var(--glow);transform:translateY(-2px)}
+.btn-sm{padding:9px 17px;font-size:.875rem}
+.hdr-cta{display:none}
+@media (min-width:720px){.hdr-cta{display:inline-flex}}
+
+/* ─── 1. intake / hero ─── */
+.intake{position:relative;min-height:100svh;display:flex;flex-direction:column;padding-top:118px}
+.intake-copy{position:relative;z-index:1;text-align:center;display:flex;flex-direction:column;align-items:center;gap:26px}
+.intake-copy .lead{max-width:50ch}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+.meta-row{display:flex;align-items:center;gap:10px;justify-content:center;margin-top:2px}
+.dot-live{width:6px;height:6px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 3px rgba(255,210,123,.16);flex-shrink:0}
+
+/* raking light across the intake — the brand's beam, thrown at an angle */
+.shafts{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden;display:none;contain:strict}
+@media (min-width:1024px){.shafts{display:block}}
+.shafts i{position:absolute;display:block;border-radius:50%;transform:rotate(-42deg);filter:blur(26px)}
+.shafts i:nth-child(1){left:-7%;top:-32%;width:32rem;height:72rem;
+  background:radial-gradient(66% 68% at 55% 32%,rgba(123,169,255,.075) 0,rgba(75,143,255,.022) 50%,transparent 80%)}
+.shafts i:nth-child(2){left:3%;top:-40%;width:12rem;height:72rem;
+  background:radial-gradient(50% 50% at 50% 50%,rgba(123,169,255,.06) 0,rgba(75,143,255,.018) 80%,transparent 100%)}
+
+/* the offer pill, with the arrow that slides through on hover */
+.pill{display:inline-flex;align-items:center;gap:11px;align-self:center;
+  padding:5px 6px 5px 15px;border-radius:99px;text-decoration:none;
+  border:1px solid var(--hair);background:rgba(123,169,255,.05);
+  font-size:.85rem;line-height:1;color:var(--ink-cool);
+  transition:border-color .35s var(--ease),background .35s var(--ease),color .35s var(--ease)}
+.pill:hover{border-color:var(--hair-strong);background:rgba(123,169,255,.12);color:var(--ink)}
+.pill-rule{width:1px;height:16px;background:var(--hair-strong);flex-shrink:0}
+.pill-go{width:24px;height:24px;border-radius:50%;overflow:hidden;flex-shrink:0;
+  background:rgba(123,169,255,.15);transition:background .35s var(--ease)}
+.pill:hover .pill-go{background:rgba(123,169,255,.26)}
+.pill-arrows{display:flex;width:48px;transform:translateX(-50%);transition:transform .55s var(--ease)}
+.pill:hover .pill-arrows{transform:translateX(0)}
+.pill-arrows svg{flex:0 0 24px;width:24px;height:24px;padding:6px;
+  stroke:var(--ink);fill:none;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+
+/* hero entrance: blur-in, staggered. fill-mode backwards so no filter lingers on the text */
+@keyframes heroIn{from{opacity:0;filter:blur(12px);transform:translateY(14px)}to{opacity:1;filter:blur(0);transform:none}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.intake-copy>*{animation:heroIn 1.05s var(--ease) backwards}
+.intake-copy>:nth-child(1){animation-delay:.06s}
+.intake-copy>:nth-child(2){animation-delay:.17s}
+.intake-copy>:nth-child(3){animation-delay:.30s}
+.intake-copy>:nth-child(4){animation-delay:.43s}
+.intake-copy>:nth-child(5){animation-delay:.55s}
+/* the particle field fades only — a lingering blur filter would re-layer the canvas every frame */
+.mouth{animation:fadeIn 1.3s var(--ease) backwards;animation-delay:.62s}
+@media (prefers-reduced-motion:reduce){
+  .intake-copy>*,.mouth{animation:none!important}
+}
+
+/* the funnel mouth: page-spanning intake the beam falls out of */
+.mouth{position:relative;flex:1;min-height:230px;margin-top:clamp(34px,6vw,64px)}
+#field{position:absolute;inset:0;width:100%;height:100%;display:block}
+.mouth-label{position:absolute;left:50%;bottom:76px;transform:translateX(-50%);z-index:3;
+  display:flex;align-items:center;gap:10px;white-space:nowrap}
+.mouth-label::before,.mouth-label::after{content:"";width:clamp(18px,5vw,52px);height:1px;background:var(--hair-strong)}
+.funnel{position:absolute;left:50%;bottom:0;transform:translateX(-50%);width:min(560px,86vw);height:74px;z-index:2}
+
+/* ─── shared section rhythm ─── */
+section{position:relative}
+.sec{padding-block:clamp(96px,13vw,180px)}
+.sec-head{display:flex;flex-direction:column;gap:20px;max-width:64ch}
+.sec-head.center{align-items:center;text-align:center;margin-inline:auto}
+
+/* ─── 2. the fracture ─── */
+.fracture{display:grid;grid-template-columns:1fr;gap:clamp(40px,6vw,72px);align-items:center}
+@media (min-width:900px){.fracture{grid-template-columns:1fr 1fr;gap:clamp(48px,6vw,96px)}}
+.vendors{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(10px,1.6vw,18px)}
+.vendor{position:relative;border:1px solid rgba(123,169,255,.12);border-radius:14px;
+  background:linear-gradient(180deg,rgba(123,169,255,.05),rgba(123,169,255,.012));
+  padding:18px 12px 20px;text-align:center;overflow:hidden;min-height:190px;
+  display:flex;flex-direction:column;align-items:center;gap:12px}
+.vendor:nth-child(1){transform:translateY(-14px)}
+.vendor:nth-child(3){transform:translateY(18px)}
+.vendor-name{font-size:.8rem;font-weight:500;color:var(--ink-cool);line-height:1.25}
+.vendor-stub{flex:1;width:1px;background:linear-gradient(180deg,rgba(123,169,255,.44),rgba(123,169,255,0));min-height:56px}
+.vendor-out{display:flex;gap:5px}
+.vendor-out i{width:3px;height:3px;border-radius:50%;background:var(--ink-dim);display:block}
+.vendor-bill{font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:#5A6E92}
+
+/* ─── 3. the machine ─── */
+.machine{position:relative}
+.chamber{position:relative;margin:clamp(48px,7vw,88px) auto 0;width:min(1040px,100%)}
+/* the spine: one continuous beam the whole machine hangs on */
+.spine{position:absolute;left:50%;top:-6%;bottom:-6%;width:1px;transform:translateX(-50%);
+  background:linear-gradient(180deg,rgba(123,169,255,0),rgba(123,169,255,.5) 12%,rgba(123,169,255,.5) 88%,rgba(123,169,255,0));z-index:0}
+.spine::after{content:"";position:absolute;left:50%;top:var(--p,0%);transform:translate(-50%,-50%);
+  width:5px;height:5px;border-radius:50%;background:#CFE0FF;
+  box-shadow:0 0 12px 3px rgba(123,169,255,.85),0 0 44px 10px rgba(75,143,255,.4)}
+.vessel{position:relative;z-index:1;border:1px solid var(--hair);border-radius:26px;
+  background:linear-gradient(180deg,rgba(123,169,255,.07),rgba(123,169,255,.02) 40%,rgba(123,169,255,.055));
+  backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px);
+  padding:clamp(24px,4vw,44px) clamp(14px,3vw,34px);
+  display:flex;flex-direction:column;gap:clamp(22px,3.4vw,40px)}
+.vessel::before{content:"";position:absolute;left:12%;right:12%;top:0;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(123,169,255,.6),transparent)}
+
+.stage{display:grid;grid-template-columns:1fr;gap:14px;align-items:center;position:relative}
+@media (min-width:860px){
+  .stage{grid-template-columns:1fr auto 1fr;gap:clamp(18px,3vw,44px)}
+  .stage.right .stage-copy{grid-column:3;text-align:left}
+  .stage.left .stage-copy{grid-column:1;text-align:right;justify-items:end}
+  .stage-icon{grid-column:2;grid-row:1}
+}
+.stage-copy{display:grid;gap:6px;align-content:center}
+.stage-copy .idx{font-size:.75rem;font-weight:500;letter-spacing:.1em;color:var(--accent)}
+.stage-copy p{font-size:.9375rem;color:var(--ink-dim);max-width:34ch;line-height:1.5}
+.stage.left .stage-copy p{margin-left:auto}
+.stage-icon{position:relative;width:74px;height:74px;border-radius:19px;flex-shrink:0;
+  border:1px solid var(--hair);background:rgba(8,14,28,.72);
+  display:grid;place-items:center;justify-self:center;
+  transition:border-color .7s var(--ease),box-shadow .7s var(--ease),background .7s var(--ease)}
+.stage-icon svg{width:27px;height:27px;stroke:var(--ink-cool);fill:none;
+  stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;transition:stroke .7s var(--ease)}
+.stage.lit .stage-icon{border-color:rgba(123,169,255,.62);background:rgba(18,34,70,.82);
+  box-shadow:0 0 0 1px rgba(123,169,255,.12),0 14px 44px -14px rgba(75,143,255,.85)}
+.stage.lit .stage-icon svg{stroke:#DCE8FF}
+/* connector from the icon out to its callout */
+@media (min-width:860px){
+  .stage::after{content:"";position:absolute;top:50%;width:clamp(16px,3vw,42px);height:1px;background:var(--hair-strong)}
+  .stage.right::after{left:calc(50% + 37px)}
+  .stage.left::after{right:calc(50% + 37px)}
+}
+
+/* ─── 4. output ─── */
+.output{position:relative;display:flex;flex-direction:column;align-items:center;gap:34px}
+.spout{width:min(560px,86vw);height:70px}
+.yield{display:grid;grid-template-columns:repeat(9,1fr);gap:clamp(9px,1.5vw,15px);width:min(360px,74vw)}
+.yield i{display:block;width:5px;height:5px;border-radius:50%;background:var(--glow);justify-self:center;
+  opacity:0;transform:translateY(-12px);box-shadow:0 0 9px rgba(123,169,255,.75)}
+.yield.on i{animation:settle .85s var(--ease) forwards}
+@keyframes settle{to{opacity:.92;transform:translateY(0)}}
+.out-label{display:flex;align-items:center;gap:10px;white-space:nowrap}
+.out-label::before,.out-label::after{content:"";width:clamp(18px,5vw,52px);height:1px;background:var(--hair-strong)}
+
+/* ─── 5. work ─── */
+.work-grid{display:grid;grid-template-columns:1fr;gap:clamp(16px,2.4vw,26px);margin-top:clamp(40px,6vw,68px)}
+@media (min-width:760px){.work-grid{grid-template-columns:repeat(6,1fr)}}
+.piece{position:relative;border:1px solid var(--hair);border-radius:18px;overflow:hidden;
+  background:var(--ground-2);display:flex;flex-direction:column;
+  transition:border-color .45s var(--ease),transform .45s var(--ease)}
+.piece:hover{border-color:var(--hair-strong);transform:translateY(-3px)}
+.piece.wide{grid-column:span 4}
+.piece.narrow{grid-column:span 2}
+.piece.half{grid-column:span 3}
+@media (max-width:759px){.piece.wide,.piece.narrow,.piece.half{grid-column:auto}}
+.piece-media{position:relative;background:#04060C;overflow:hidden;display:block;line-height:0}
+.piece-media video,.piece-media img{width:100%;height:100%;object-fit:cover;display:block}
+.piece.wide .piece-media{aspect-ratio:16/10}
+.piece.narrow .piece-media{aspect-ratio:4/5}
+.piece.half .piece-media{aspect-ratio:16/10}
+.piece-body{padding:17px 19px 20px;display:flex;flex-direction:column;gap:6px;flex:1}
+.piece-body p{font-size:.875rem;color:var(--ink-dim);line-height:1.5}
+.tag{align-self:flex-start;font-size:.65rem;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink-dim);border:1px solid var(--hair);border-radius:99px;padding:4px 9px;margin-top:auto}
+.play{position:absolute;inset:0;display:grid;place-items:center;background:rgba(4,6,12,.34);
+  border:0;cursor:pointer;transition:background .35s var(--ease)}
+.play:hover{background:rgba(4,6,12,.14)}
+.play span{width:52px;height:52px;border-radius:50%;background:rgba(5,8,15,.72);
+  border:1px solid rgba(123,169,255,.5);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+  display:grid;place-items:center;box-shadow:0 8px 30px -8px rgba(75,143,255,.7)}
+.play svg{width:16px;height:16px;fill:var(--ink);stroke:none;margin-left:2px}
+/* slideshow: one still dissolving into the next, with a segmented progress track */
+.show{position:relative;background:#04060C}
+.show .frame{position:absolute;inset:0;opacity:0;transition:opacity 1.3s var(--ease)}
+.show .frame.on{opacity:1}
+/* the shots are portrait posters; contain them whole and fill the frame with a
+   blurred copy of the same image so nothing is cropped and the watermark survives */
+.show .frame img{position:absolute;inset:0;width:100%;height:100%}
+.show .frame img.bg{object-fit:cover;filter:blur(30px) saturate(125%);transform:scale(1.18);opacity:.45}
+.show .frame img.fg{object-fit:contain;transform:scale(1.005)}
+.show .frame.on img.fg{animation:drift 6.2s linear forwards}
+@keyframes drift{from{transform:scale(1.005)}to{transform:scale(1.045)}}
+.show::after{content:"";position:absolute;left:0;right:0;bottom:0;height:44%;pointer-events:none;
+  background:linear-gradient(180deg,transparent,rgba(4,6,12,.62))}
+
+.show-nav{position:absolute;top:50%;z-index:3;width:36px;height:36px;
+  display:grid;place-items:center;cursor:pointer;border-radius:50%;
+  border:1px solid var(--hair);background:rgba(5,8,15,.66);
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  transition:background .3s var(--ease),border-color .3s var(--ease),transform .35s var(--ease)}
+.show-nav.prev{left:12px;transform:translateY(-50%)}
+.show-nav.next{right:12px;transform:translateY(-50%)}
+.show-nav:hover{background:rgba(18,30,58,.9);border-color:var(--hair-strong)}
+.show-nav.prev:hover{transform:translateY(-50%) translateX(-3px)}
+.show-nav.next:hover{transform:translateY(-50%) translateX(3px)}
+.show-nav svg{width:15px;height:15px;stroke:var(--ink);fill:none;
+  stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+@media (max-width:600px){.show-nav{width:32px;height:32px}.show-nav.prev{left:8px}.show-nav.next{right:8px}}
+
+.show-ui{position:absolute;left:0;right:0;bottom:12px;z-index:3;
+  display:flex;align-items:center;justify-content:center;gap:9px}
+.show-track{display:flex;align-items:center;gap:7px;padding:8px 13px;border-radius:99px;
+  background:rgba(5,8,15,.7);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  border:1px solid var(--hair)}
+.seg{width:6px;height:6px;padding:0;border:0;border-radius:99px;cursor:pointer;
+  background:rgba(157,178,214,.34);position:relative;overflow:hidden;
+  transition:width .55s var(--ease),background .55s var(--ease)}
+.seg:hover{background:rgba(157,178,214,.6)}
+.seg.on{width:32px;background:rgba(157,178,214,.26)}
+.seg.on::after{content:"";position:absolute;inset:0;border-radius:99px;background:var(--ink);
+  transform-origin:left;transform:scaleX(0);animation:segFill 5.4s linear forwards}
+.show[data-paused="true"] .seg.on::after,
+.show[data-paused="true"] .frame.on img.fg{animation-play-state:paused}
+/* portrait posters need a taller frame than the other pieces */
+.piece .piece-media.show{aspect-ratio:4/3}
+@keyframes segFill{to{transform:scaleX(1)}}
+.show-toggle{width:30px;height:30px;flex-shrink:0;display:grid;place-items:center;cursor:pointer;
+  border-radius:50%;border:1px solid var(--hair);background:rgba(5,8,15,.7);
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  transition:background .3s var(--ease),border-color .3s var(--ease)}
+.show-toggle:hover{background:rgba(18,30,58,.85);border-color:var(--hair-strong)}
+.show-toggle svg{width:11px;height:11px;fill:var(--ink);stroke:none}
+.show-toggle .i-play{display:none;margin-left:1px}
+.show[data-paused="true"] .show-toggle .i-play{display:block}
+.show[data-paused="true"] .show-toggle .i-pause{display:none}
+@media (prefers-reduced-motion:reduce){
+  .show .frame{transition:none}
+  .show .frame.on img,.seg.on::after{animation:none}
+  .seg.on::after{transform:scaleX(1)}
+}
+
+.doc-face{aspect-ratio:16/10;display:grid;place-items:center;
+  background:radial-gradient(80% 70% at 50% 18%,rgba(75,143,255,.16),transparent 70%),#050912}
+.doc-face svg{width:44px;height:44px;stroke:var(--ink-dim);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+
+/* ─── 6. offer ─── */
+.offer{border:1px solid rgba(255,210,123,.24);border-radius:26px;
+  background:linear-gradient(180deg,rgba(255,210,123,.07),rgba(255,210,123,.015));
+  padding:clamp(30px,5.4vw,62px);display:flex;flex-direction:column;gap:22px;align-items:flex-start;position:relative;overflow:hidden}
+.offer::before{content:"";position:absolute;left:0;right:0;top:0;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(255,210,123,.6),transparent)}
+.offer h2{color:var(--gold)}
+.offer .prose{color:#D9C9A8;max-width:60ch}
+.offer .btn-primary{background:linear-gradient(180deg,#FFDE9A,#E9B455);color:#1A1204;
+  box-shadow:0 1px 0 rgba(255,255,255,.4) inset,0 8px 26px -8px rgba(255,210,123,.6)}
+.offer .btn-primary:hover{box-shadow:0 1px 0 rgba(255,255,255,.5) inset,0 16px 38px -10px rgba(255,210,123,.75)}
+
+/* ─── 7. founder ─── */
+.founder{display:grid;grid-template-columns:1fr;gap:clamp(28px,4vw,56px);align-items:start}
+@media (min-width:820px){.founder{grid-template-columns:minmax(0,1.35fr) minmax(0,1fr)}}
+.card-quiet{border:1px solid var(--hair);border-radius:20px;background:var(--panel);padding:clamp(22px,3vw,32px);
+  display:flex;flex-direction:column;gap:16px}
+.reach{display:flex;flex-direction:column;gap:2px}
+.reach a{display:flex;align-items:center;justify-content:space-between;gap:16px;
+  padding:13px 2px;text-decoration:none;color:var(--ink-cool);font-size:.9375rem;
+  border-bottom:1px solid rgba(123,169,255,.1);transition:color .3s var(--ease),transform .3s var(--ease)}
+.reach a:last-child{border-bottom:0}
+.reach a:hover{color:var(--ink);transform:translateX(5px)}
+.reach .k{color:var(--ink-dim);font-size:.8rem;letter-spacing:.02em}
+
+/* ─── 8. close ─── */
+.close{text-align:center;display:flex;flex-direction:column;align-items:center;gap:26px}
+.close .lead{max-width:48ch}
+
+/* ─── partners ─── */
+.partners{border-top:1px solid var(--hair);padding-block:clamp(40px,6vw,64px) 0;
+  display:flex;flex-direction:column;gap:26px;align-items:flex-start}
+.partner-list{display:flex;flex-wrap:wrap;gap:14px;width:100%}
+.partner{display:flex;align-items:center;gap:18px;text-decoration:none;
+  border:1px solid var(--hair);border-radius:16px;padding:18px 22px;
+  background:var(--panel);min-width:min(360px,100%);
+  transition:border-color .4s var(--ease),background .4s var(--ease),transform .4s var(--ease)}
+.partner:hover{border-color:var(--hair-strong);background:rgba(123,169,255,.09);transform:translateY(-2px)}
+/* the partner mark is black-on-transparent and may not be altered, so it gets
+   its own light plate rather than a filter */
+.partner-mark{flex-shrink:0;background:#fff;border-radius:10px;padding:9px 13px;
+  display:grid;place-items:center;box-shadow:0 6px 20px -10px rgba(0,0,0,.7)}
+.partner-mark img{height:31px;width:auto;display:block}
+.partner-txt{font-size:.8125rem;color:var(--ink-dim);line-height:1.45;min-width:0}
+.partner-go{margin-left:auto;flex-shrink:0;color:var(--ink-dim);
+  transition:color .4s var(--ease),transform .4s var(--ease)}
+.partner:hover .partner-go{color:var(--glow);transform:translateX(3px)}
+.partner-go svg{width:15px;height:15px;stroke:currentColor;fill:none;
+  stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;display:block}
+@media (max-width:480px){
+  .partner{flex-wrap:wrap;gap:12px;min-width:100%}
+  .partner-go{margin-left:0}
+}
+
+footer{border-top:1px solid var(--hair);padding-block:34px 44px;margin-top:clamp(60px,9vw,110px)}
+.foot{display:flex;flex-wrap:wrap;gap:16px 28px;align-items:center;justify-content:space-between}
+.foot-links{display:flex;gap:20px;flex-wrap:wrap}
+.foot a{color:var(--ink-dim);font-size:.85rem;text-decoration:none;transition:color .25s var(--ease)}
+.foot a:hover{color:var(--ink-cool)}
+.foot small{color:#4E5F80;font-size:.8rem}
+
+/* ─── entrance: content visible by default, motion only enhances ─── */
+.rise{opacity:0;transform:translateY(18px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.rise.in{opacity:1;transform:none}
+.no-js .rise,.reduced .rise{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  .rise{opacity:1!important;transform:none!important}
+  .yield i{opacity:.92!important;transform:none!important;animation:none!important}
+}
+</style>
+</head>
+<body>
+<!--
+  DIRECTION CONTRACT — lanelle.works home
+  THESIS: The page is the machine. The visitor descends through a growth system rather than
+    reading a services list; it refuses the agency-landing arrangement of hero + three icon
+    cards + logo wall, which Lanelle cannot honestly fill anyway.
+  OWN-WORLD: Midnight #05080F under layered blue atmosphere. One grotesk (Schibsted) at weight
+    400 in few large sizes; Cinzel only for the LANELLE wordmark. A single luminous spine
+    (#7BA9FF) runs the whole machine; translucent vessel walls on rgba(123,169,255,.18) hairlines;
+    gold #FFD27B reserved for the free-offer moment alone; icons drawn at 1.5 stroke.
+  STORY: An owner juggling vendors sees that traffic becomes customers only when web, ads,
+    content and retention share one strategy, believes Lanelle runs that system end to end,
+    and books a free call.
+  FIRST VIEWPORT: Thin bar (wordmark left; nav, EN/ID toggle, Book a call right). Centred
+    display line "We bring you customers." at 400 weight, one supporting sentence, primary
+    Book a call plus a secondary link. Beneath, a live particle field drifts down into a
+    narrowing intake labelled COLD TRAFFIC, where the spine begins and runs off-screen.
+  FORM: The Machine — index 1 of 7 on the ordered list, user-pinned over dealt indices 5/4/6;
+    seed key b1c78d4e.
+  FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review,
+    the verdict, DESIGN.md, and every shipping raster carrying its provenance.
+-->
+<div class="sky"></div>
+<div class="grain"></div>
+
+<header id="hdr">
+  <div class="island" id="island">
+    <a class="brand isl-fade" href="#top" aria-label="Lanelle Works, home">
+      <img src="assets/lanelle-mark.png" alt="">
+      <span>LANELLE</span>
+    </a>
+    <nav class="isl-fade" aria-label="Main">
+      <a href="#machine" data-en="The machine" data-id="Mesinnya">The machine</a>
+      <a href="#work" data-en="Work" data-id="Karya">Work</a>
+      <a href="#offer" data-en="Offer" data-id="Penawaran">Offer</a>
+    </nav>
+    <div class="hdr-right isl-fade">
+      <div class="lang" role="group" aria-label="Language / Bahasa">
+        <button type="button" data-lang="en" aria-pressed="true">EN</button>
+        <button type="button" data-lang="id" aria-pressed="false">ID</button>
+      </div>
+      <a class="btn btn-primary btn-sm hdr-cta" href="https://cal.com/lanelle-works-uhcszk/30min" target="_blank" rel="noopener"
+         data-en="Book a call" data-id="Booking call">Book a call</a>
+    </div>
+    <button class="isl-open" type="button" tabindex="-1" aria-expanded="true" aria-controls="island"
+            data-label-en="Expand navigation" data-label-id="Buka navigasi" aria-label="Expand navigation">
+      <img src="assets/lanelle-mark.png" alt="">
+    </button>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ── 1. INTAKE ────────────────────────────────────────────── -->
+  <section class="intake">
+    <div class="shafts" aria-hidden="true"><i></i><i></i></div>
+    <div class="wrap intake-copy">
+      <a class="pill" href="#offer">
+        <i class="dot-live" aria-hidden="true"></i>
+        <span data-en="The first build is free" data-id="Build pertama gratis">The first build is free</span>
+        <span class="pill-rule" aria-hidden="true"></span>
+        <span class="pill-go" aria-hidden="true">
+          <span class="pill-arrows">
+            <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </span>
+        </span>
+      </a>
+      <h1 class="display" data-en='We bring you <span class="hl">customers</span>.' data-id='Kami bawa <span class="hl">pelanggan</span> ke bisnismu.'>We bring you <span class="hl">customers</span>.</h1>
+      <p class="lead"
+         data-en="Your site, your ads, your content, your follow-up — built and run as one machine. Not four vendors who never talk to each other."
+         data-id="Website, iklan, konten, sampai follow up. Dibangun dan dijalanin sebagai satu mesin, bukan empat vendor yang nggak pernah ngobrol.">Your site, your ads, your content, your follow-up — built and run as one machine. Not four vendors who never talk to each other.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="https://cal.com/lanelle-works-uhcszk/30min" target="_blank" rel="noopener"
+           data-en="Book a free call" data-id="Booking call gratis">Book a free call</a>
+        <a class="btn btn-ghost" href="#machine" data-en="See how it works" data-id="Lihat cara kerjanya">See how it works</a>
+      </div>
+      <div class="meta-row">
+        <span class="label" data-en="Jakarta, Indonesia · Working worldwide" data-id="Jakarta, Indonesia · Bisa remote ke mana aja">Jakarta, Indonesia · Working worldwide</span>
+      </div>
+    </div>
+
+    <div class="mouth">
+      <canvas id="field" aria-hidden="true"></canvas>
+      <div class="mouth-label"><span class="label">Cold traffic</span></div>
+      <svg class="funnel" viewBox="0 0 560 74" fill="none" aria-hidden="true" preserveAspectRatio="none">
+        <path d="M0 1 L246 66 M560 1 L314 66" stroke="rgba(123,169,255,.34)" stroke-width="1"/>
+        <path d="M246 66 L246 74 M314 66 L314 74" stroke="rgba(123,169,255,.34)" stroke-width="1"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ── 2. THE FRACTURE ──────────────────────────────────────── -->
+  <section class="sec">
+    <div class="wrap fracture">
+      <div class="sec-head rise">
+        <h2 data-en="Right now, this runs on three vendors." data-id="Sekarang, ini jalan pakai tiga vendor.">Right now, this runs on three vendors.</h2>
+        <p class="prose"
+           data-en="One agency builds the site. Another runs the ads. A third posts the content. Each optimises for its own number, nobody owns the result, and the moment growth stalls they point at each other."
+           data-id="Satu agency bikin website. Satu lagi jalanin iklan. Satu lagi ngurus konten. Masing-masing kejar angkanya sendiri, nggak ada yang pegang hasil akhirnya, dan pas growth-nya mandek semuanya saling nunjuk.">One agency builds the site. Another runs the ads. A third posts the content. Each optimises for its own number, nobody owns the result, and the moment growth stalls they point at each other.</p>
+      </div>
+      <div class="vendors rise">
+        <div class="vendor">
+          <span class="vendor-name" data-en="Web agency" data-id="Agency website">Web agency</span>
+          <span class="vendor-stub"></span>
+          <span class="vendor-out"><i></i><i></i></span>
+          <span class="vendor-bill num">Invoice 01</span>
+        </div>
+        <div class="vendor">
+          <span class="vendor-name" data-en="Ads agency" data-id="Agency iklan">Ads agency</span>
+          <span class="vendor-stub"></span>
+          <span class="vendor-out"><i></i><i></i><i></i></span>
+          <span class="vendor-bill num">Invoice 02</span>
+        </div>
+        <div class="vendor">
+          <span class="vendor-name" data-en="Social agency" data-id="Agency sosmed">Social agency</span>
+          <span class="vendor-stub"></span>
+          <span class="vendor-out"><i></i></span>
+          <span class="vendor-bill num">Invoice 03</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 3. THE MACHINE ───────────────────────────────────────── -->
+  <section class="sec machine" id="machine">
+    <div class="wrap">
+      <div class="sec-head center rise">
+        <h2 data-en="One machine, four parts." data-id="Satu mesin, empat bagian.">One machine, four parts.</h2>
+        <p class="lead"
+           data-en="Traffic comes in cold. It leaves as customers. Everything in between is one system, tuned against one set of numbers."
+           data-id="Traffic masuk dingin. Keluarnya jadi pelanggan. Semua yang di tengah itu satu sistem, diukur pakai satu angka yang sama.">Traffic comes in cold. It leaves as customers. Everything in between is one system, tuned against one set of numbers.</p>
+      </div>
+
+      <div class="chamber">
+        <div class="spine" id="spine" aria-hidden="true"></div>
+        <div class="vessel">
+
+          <div class="stage right rise" data-stage>
+            <div class="stage-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17M12 3.5c2.4 2.5 3.6 5.4 3.6 8.5s-1.2 6-3.6 8.5c-2.4-2.5-3.6-5.4-3.6-8.5S9.6 6 12 3.5Z"/></svg>
+            </div>
+            <div class="stage-copy">
+              <span class="idx num">01</span>
+              <h3 data-en="Brand &amp; Web" data-id="Brand &amp; Web">Brand &amp; Web</h3>
+              <p data-en="Sites and funnels built to convert, not to look busy."
+                 data-id="Website dan funnel yang dibangun buat convert, bukan buat rame.">Sites and funnels built to convert, not to look busy.</p>
+            </div>
+          </div>
+
+          <div class="stage left rise" data-stage>
+            <div class="stage-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="3.6"/><path d="M12 1.6v3M12 19.4v3M1.6 12h3M19.4 12h3"/></svg>
+            </div>
+            <div class="stage-copy">
+              <span class="idx num">02</span>
+              <h3 data-en="Meta Ads" data-id="Meta Ads">Meta Ads</h3>
+              <p data-en="Measured in leads and revenue. Not likes."
+                 data-id="Diukur dari leads dan revenue. Bukan likes.">Measured in leads and revenue. Not likes.</p>
+            </div>
+          </div>
+
+          <div class="stage right rise" data-stage>
+            <div class="stage-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 8.5 4.6L12 12.2 3.5 7.6 12 3Z"/><path d="m3.5 12 8.5 4.6 8.5-4.6"/><path d="m3.5 16.4 8.5 4.6 8.5-4.6"/></svg>
+            </div>
+            <div class="stage-copy">
+              <span class="idx num">03</span>
+              <h3 data-en="Content Systems" data-id="Sistem Konten">Content Systems</h3>
+              <p data-en="Photo and short-form video, produced on a schedule instead of a whim."
+                 data-id="Foto dan video short-form, diproduksi terjadwal, bukan pas lagi kepikiran aja.">Photo and short-form video, produced on a schedule instead of a whim.</p>
+            </div>
+          </div>
+
+          <div class="stage left rise" data-stage>
+            <div class="stage-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 12a8.5 8.5 0 1 1-2.9-6.4"/><path d="M20.5 4v5.2h-5.2"/></svg>
+            </div>
+            <div class="stage-copy">
+              <span class="idx num">04</span>
+              <h3 data-en="Retention &amp; CRM" data-id="Retensi &amp; CRM">Retention &amp; CRM</h3>
+              <p data-en="Follow-up that turns one purchase into a habit."
+                 data-id="Follow up yang bikin sekali beli jadi kebiasaan.">Follow-up that turns one purchase into a habit.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 4. OUTPUT ────────────────────────────────────────────── -->
+  <section class="sec" style="padding-top:0">
+    <div class="wrap output">
+      <svg class="spout" viewBox="0 0 560 70" fill="none" aria-hidden="true" preserveAspectRatio="none">
+        <path d="M246 0 L246 8 M314 0 L314 8" stroke="rgba(123,169,255,.34)" stroke-width="1"/>
+        <path d="M246 8 L120 66 M314 8 L440 66" stroke="rgba(123,169,255,.34)" stroke-width="1"/>
+      </svg>
+      <div class="yield" id="yield" aria-hidden="true">
+        <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+        <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+        <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+      </div>
+      <div class="out-label"><span class="label" data-en="Customers · Revenue" data-id="Pelanggan · Revenue">Customers · Revenue</span></div>
+      <div class="sec-head center rise" style="margin-top:clamp(30px,5vw,54px)">
+        <h2 data-en="The difference is that the parts talk." data-id="Bedanya, tiap bagiannya saling ngobrol.">The difference is that the parts talk.</h2>
+        <p class="prose" style="text-align:center;margin-inline:auto"
+           data-en="Ad data shapes the landing page. Landing page data shapes the creative. Retention data tells the ads who is worth chasing again. One team sees all four, so the loop actually closes."
+           data-id="Data iklan ngebentuk landing page. Data landing page ngebentuk creative. Data retensi ngasih tau iklan siapa yang layak dikejar lagi. Satu tim lihat keempatnya, jadi loop-nya beneran nutup.">Ad data shapes the landing page. Landing page data shapes the creative. Retention data tells the ads who is worth chasing again. One team sees all four, so the loop actually closes.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 5. WORK ──────────────────────────────────────────────── -->
+  <section class="sec" id="work">
+    <div class="wrap">
+      <div class="sec-head rise">
+        <h2 data-en="What we've made so far." data-id="Yang udah kita bikin sejauh ini.">What we've made so far.</h2>
+        <p class="prose"
+           data-en="Lanelle is new, so this is in-house and sample work rather than a client roster. It is the honest version, and it is what the machine actually produces."
+           data-id="Lanelle masih baru, jadi ini karya in-house dan sample, bukan daftar klien. Ini versi jujurnya, dan ini yang beneran keluar dari mesinnya.">Lanelle is new, so this is in-house and sample work rather than a client roster. It is the honest version, and it is what the machine actually produces.</p>
+      </div>
+
+      <div class="work-grid">
+        <article class="piece wide rise">
+          <div class="piece-media show" data-show data-paused="false">
+            <div class="frame">
+              <img class="bg" src="assets/work/shots/01.webp" alt="" aria-hidden="true" loading="lazy" decoding="async">
+              <img class="fg" src="assets/work/shots/01.webp" alt="Concept shot: two adidas Metalbone padel rackets on a dark blue studio ground" loading="lazy" decoding="async">
+            </div>
+            <div class="frame">
+              <img class="bg" src="assets/work/shots/02.webp" alt="" aria-hidden="true" loading="lazy" decoding="async">
+              <img class="fg" src="assets/work/shots/02.webp" alt="Concept shot: an adidas Metalbone padel racket lit by a neon blue ring" loading="lazy" decoding="async">
+            </div>
+            <div class="frame">
+              <img class="bg" src="assets/work/shots/03.webp" alt="" aria-hidden="true" loading="lazy" decoding="async">
+              <img class="fg" src="assets/work/shots/03.webp" alt="Concept shot: an adidas Cross It Light padel racket among cherry blossom" loading="lazy" decoding="async">
+            </div>
+            <div class="frame">
+              <img class="bg" src="assets/work/shots/04.webp" alt="" aria-hidden="true" loading="lazy" decoding="async">
+              <img class="fg" src="assets/work/shots/04.webp" alt="Concept shot: an adidas Cross It Light padel racket in a sunlit desert canyon" loading="lazy" decoding="async">
+            </div>
+            <div class="frame">
+              <img class="bg" src="assets/work/shots/05.webp" alt="" aria-hidden="true" loading="lazy" decoding="async">
+              <img class="fg" src="assets/work/shots/05.webp" alt="Concept shot: a group of fragrance bottles in low, moody light" loading="lazy" decoding="async">
+            </div>
+            <div class="frame">
+              <img class="bg" src="assets/work/shots/06.webp" alt="" aria-hidden="true" loading="lazy" decoding="async">
+              <img class="fg" src="assets/work/shots/06.webp" alt="Concept shot: a Ferragamo fragrance bottle on a stone plinth" loading="lazy" decoding="async">
+            </div>
+            <button class="show-nav prev" type="button" data-nav="-1" aria-label="Previous shot">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+            </button>
+            <button class="show-nav next" type="button" data-nav="1" aria-label="Next shot">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
+            </button>
+            <div class="show-ui">
+              <div class="show-track" role="tablist" aria-label="Product shot slides"></div>
+              <button class="show-toggle" type="button" aria-label="Pause slideshow">
+                <svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4h4v16H7zM13 4h4v16h-4z"/></svg>
+                <svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+              </button>
+            </div>
+          </div>
+          <div class="piece-body">
+            <h3 data-en="Product shots" data-id="Product shot">Product shots</h3>
+            <p data-en="Self-initiated concept work, not client commissions. One product carried through several different worlds — the range a single shoot has to cover when content ships every week."
+               data-id="Concept work yang kita inisiasi sendiri, bukan orderan klien. Satu produk dibawa ke beberapa dunia yang beda, sesuai range yang harus dicover satu shoot kalau konten jalan tiap minggu.">Self-initiated concept work, not client commissions. One product carried through several different worlds — the range a single shoot has to cover when content ships every week.</p>
+            <span class="tag" data-en="Content Systems" data-id="Sistem Konten">Content Systems</span>
+          </div>
+        </article>
+
+        <article class="piece narrow rise">
+          <div class="piece-media">
+            <video src="assets/work/demo-reel.mp4" preload="metadata" playsinline loop muted></video>
+            <button class="play" type="button" data-play aria-label="Play the short-form reel">
+              <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
+            </button>
+          </div>
+          <div class="piece-body">
+            <h3 data-en="Short-form reel" data-id="Reel short-form">Short-form reel</h3>
+            <p data-en="Vertical cut-down built for the feed, not resized into it."
+               data-id="Versi vertikal yang emang dibikin buat feed, bukan cuma di-resize.">Vertical cut-down built for the feed, not resized into it.</p>
+            <span class="tag" data-en="Content Systems" data-id="Sistem Konten">Content Systems</span>
+          </div>
+        </article>
+
+        <article class="piece half rise">
+          <div class="piece-media show" data-show data-paused="false">
+            <div class="frame">
+              <img class="bg" src="assets/work/carousel/01.webp" alt="" aria-hidden="true" loading="lazy" decoding="async">
+              <img class="fg" src="assets/work/carousel/01.webp" alt="Slide 1: Lanelle, a growth and brand scaling agency that works" loading="lazy" decoding="async">
+            </div>
+            <div class="frame">
+              <img class="bg" src="assets/work/carousel/02.webp" alt="" aria-hidden="true" loading="lazy" decoding="async">
+              <img class="fg" src="assets/work/carousel/02.webp" alt="Slide 2 of the acquisition set" loading="lazy" decoding="async">
+            </div>
+            <div class="frame">
+              <img class="bg" src="assets/work/carousel/03.webp" alt="" aria-hidden="true" loading="lazy" decoding="async">
+              <img class="fg" src="assets/work/carousel/03.webp" alt="Slide 3 of the acquisition set" loading="lazy" decoding="async">
+            </div>
+            <div class="frame">
+              <img class="bg" src="assets/work/carousel/04.webp" alt="" aria-hidden="true" loading="lazy" decoding="async">
+              <img class="fg" src="assets/work/carousel/04.webp" alt="Slide 4 of the acquisition set" loading="lazy" decoding="async">
+            </div>
+            <div class="frame">
+              <img class="bg" src="assets/work/carousel/05.webp" alt="" aria-hidden="true" loading="lazy" decoding="async">
+              <img class="fg" src="assets/work/carousel/05.webp" alt="Slide 5: stop renting attention, start building your machine" loading="lazy" decoding="async">
+            </div>
+            <button class="show-nav prev" type="button" data-nav="-1" aria-label="Previous slide">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+            </button>
+            <button class="show-nav next" type="button" data-nav="1" aria-label="Next slide">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
+            </button>
+            <div class="show-ui">
+              <div class="show-track" role="tablist" aria-label="Ad slides"></div>
+              <button class="show-toggle" type="button" aria-label="Pause slideshow">
+                <svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4h4v16H7zM13 4h4v16h-4z"/></svg>
+                <svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+              </button>
+            </div>
+          </div>
+          <div class="piece-body">
+            <h3 data-en="Our own ad" data-id="Iklan kita sendiri">Our own ad</h3>
+            <p data-en="The five-slide set we run on ourselves — hook, problem, mechanism, offer, call to action. Written and designed end to end."
+               data-id="Set lima slide yang kita jalanin buat diri sendiri: hook, masalah, mekanisme, penawaran, call to action. Ditulis dan didesain dari awal sampai akhir.">The five-slide set we run on ourselves — hook, problem, mechanism, offer, call to action. Written and designed end to end.</p>
+            <span class="tag" data-en="Meta Ads" data-id="Meta Ads">Meta Ads</span>
+          </div>
+        </article>
+
+        <article class="piece half rise">
+          <a class="piece-media" href="assets/work/nona-woman-proposal.pdf" target="_blank" rel="noopener">
+            <div class="doc-face">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2.5H7a2 2 0 0 0-2 2v15a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7.5l-5-5Z"/><path d="M14 2.5v5h5"/><path d="M9 13h6M9 17h4"/></svg>
+            </div>
+          </a>
+          <div class="piece-body">
+            <h3 data-en="Partnership proposal" data-id="Proposal partnership">Partnership proposal</h3>
+            <p data-en="A real scope document written for Nona Woman: what we would run, in what order, and how it would be measured."
+               data-id="Dokumen scope beneran yang ditulis buat Nona Woman: apa yang bakal dijalanin, urutannya gimana, dan diukurnya pakai apa.">A real scope document written for Nona Woman: what we would run, in what order, and how it would be measured.</p>
+            <span class="tag" data-en="How we scope" data-id="Cara kita scoping">How we scope</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 6. OFFER ─────────────────────────────────────────────── -->
+  <section class="sec" id="offer" style="padding-top:0">
+    <div class="wrap">
+      <div class="offer rise">
+        <h2 data-en="The first build is free." data-id="Build pertama gratis.">The first build is free.</h2>
+        <p class="prose"
+           data-en="No cost, no catch, no contract. We build the first piece — a landing page, an ad set, a batch of content — and you keep everything we make, whether we carry on together or not."
+           data-id="Nggak ada biaya, nggak ada catch, nggak ada kontrak. Kita bangun bagian pertamanya, entah landing page, ad set, atau satu batch konten, dan semua yang kita bikin jadi punya kamu, mau lanjut bareng atau nggak.">No cost, no catch, no contract. We build the first piece — a landing page, an ad set, a batch of content — and you keep everything we make, whether we carry on together or not.</p>
+        <a class="btn btn-primary" href="https://cal.com/lanelle-works-uhcszk/30min" target="_blank" rel="noopener"
+           data-en="Claim the first build" data-id="Ambil build pertama">Claim the first build</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 7. FOUNDER ───────────────────────────────────────────── -->
+  <section class="sec" style="padding-top:0">
+    <div class="wrap founder">
+      <div class="sec-head rise">
+        <h2 data-en="Run by Jansen." data-id="Dijalanin sama Jansen.">Run by Jansen.</h2>
+        <p class="prose"
+           data-en="Lanelle is small on purpose. One person owns your account from end to end, and that is the only reason the four parts can genuinely share a strategy instead of just sharing an invoice."
+           data-id="Lanelle sengaja dibikin kecil. Satu orang pegang akun kamu dari ujung ke ujung, dan cuma itu alasannya keempat bagian ini bisa beneran satu strategi, bukan cuma satu invoice.">Lanelle is small on purpose. One person owns your account from end to end, and that is the only reason the four parts can genuinely share a strategy instead of just sharing an invoice.</p>
+        <p class="prose"
+           data-en="If the day comes when that stops being true, the machine stops working — so it will not."
+           data-id="Kalau nanti itu udah nggak bener lagi, mesinnya berhenti jalan. Jadi nggak bakal.">If the day comes when that stops being true, the machine stops working — so it will not.</p>
+      </div>
+      <div class="card-quiet rise">
+        <span class="label" data-en="Reach Lanelle" data-id="Hubungi Lanelle">Reach Lanelle</span>
+        <div class="reach">
+          <a href="https://wa.me/6281211927108?text=Hi%20Lanelle%2C%20I%20found%20you%20on%20lanelle.works%20and%20I%27d%20like%20to%20talk%20about%20growing%20my%20business." target="_blank" rel="noopener">
+            <span>WhatsApp</span><span class="k num">+62 812-1192-7108</span>
+          </a>
+          <a href="mailto:lanelle.works@gmail.com?subject=Growing%20my%20business%20with%20Lanelle">
+            <span data-en="Email" data-id="Email">Email</span><span class="k">lanelle.works@gmail.com</span>
+          </a>
+          <a href="https://instagram.com/lanelle.works" target="_blank" rel="noopener">
+            <span>Instagram</span><span class="k">@lanelle.works</span>
+          </a>
+          <a href="https://cal.com/lanelle-works-uhcszk/30min" target="_blank" rel="noopener">
+            <span data-en="Book a call" data-id="Booking call">Book a call</span><span class="k" data-en="30 minutes, free" data-id="30 menit, gratis">30 minutes, free</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 8. CLOSE ─────────────────────────────────────────────── -->
+  <section class="sec" style="padding-top:0">
+    <div class="wrap close rise">
+      <h2 data-en="Let's see if it fits." data-id="Kita lihat cocok apa nggak.">Let's see if it fits.</h2>
+      <p class="lead"
+         data-en="Thirty minutes. We look at what you're running now and where it leaks. If Lanelle isn't the answer, we'll say so."
+         data-id="Tiga puluh menit. Kita lihat apa yang lagi kamu jalanin dan di mana bocornya. Kalau Lanelle bukan jawabannya, kita bakal bilang.">Thirty minutes. We look at what you're running now and where it leaks. If Lanelle isn't the answer, we'll say so.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="https://cal.com/lanelle-works-uhcszk/30min" target="_blank" rel="noopener"
+           data-en="Book a free call" data-id="Booking call gratis">Book a free call</a>
+        <a class="btn btn-ghost" href="https://wa.me/6281211927108?text=Hi%20Lanelle%2C%20I%20found%20you%20on%20lanelle.works%20and%20I%27d%20like%20to%20talk%20about%20growing%20my%20business." target="_blank" rel="noopener"
+           data-en="Message on WhatsApp" data-id="Chat lewat WhatsApp">Message on WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── partners ─────────────────────────────────────────────── -->
+  <section class="wrap partners rise">
+  <span class="label" data-en="Our partners" data-id="Partner kami">Our partners</span>
+  <div class="partner-list">
+    <a class="partner" href="https://lanelleworks.github.io/pdm-site/" target="_blank" rel="noopener">
+      <span class="partner-mark">
+        <img src="assets/partner-pdm.png" alt="CV. Putra Deka Mandiri" loading="lazy" decoding="async" width="665" height="101">
+      </span>
+      <span class="partner-txt" data-en="Pumps &amp; industrial parts distributor. Website built by Lanelle."
+            data-id="Distributor pompa &amp; sparepart industri. Websitenya dibangun Lanelle.">Pumps &amp; industrial parts distributor. Website built by Lanelle.</span>
+      <span class="partner-go" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg>
+      </span>
+    </a>
+  </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <a class="brand" href="#top" aria-label="Lanelle Works, back to top">
+      <img src="assets/lanelle-mark.png" alt="">
+      <span>LANELLE</span>
+    </a>
+    <div class="foot-links">
+      <a href="https://instagram.com/lanelle.works" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://wa.me/6281211927108" target="_blank" rel="noopener">WhatsApp</a>
+      <a href="mailto:lanelle.works@gmail.com">Email</a>
+      <a href="index.html" data-en="Links" data-id="Links">Links</a>
+    </div>
+    <small data-en="© 2026 Lanelle Works · Jakarta, Indonesia" data-id="© 2026 Lanelle Works · Jakarta, Indonesia">© 2026 Lanelle Works · Jakarta, Indonesia</small>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduced) document.body.classList.add('reduced');
+
+  /* ── language ─────────────────────────────────────────── */
+  var nodes  = document.querySelectorAll('[data-en]');
+  var labels = document.querySelectorAll('[data-label-en]');
+  var btns   = document.querySelectorAll('.lang button');
+  function setLang(l){
+    document.documentElement.lang = l;
+    nodes.forEach(function(n){
+      var v = n.getAttribute('data-' + l);
+      if (v != null) n.innerHTML = v;
+    });
+    labels.forEach(function(n){
+      var v = n.getAttribute('data-label-' + l);
+      if (v != null) n.setAttribute('aria-label', v);
+    });
+    btns.forEach(function(b){ b.setAttribute('aria-pressed', String(b.dataset.lang === l)); });
+    try { localStorage.setItem('lanelle-lang', l); } catch(e){}
+  }
+  btns.forEach(function(b){ b.addEventListener('click', function(){ setLang(b.dataset.lang); }); });
+  var saved;
+  try { saved = localStorage.getItem('lanelle-lang'); } catch(e){}
+  if (!saved && (navigator.language || '').toLowerCase().indexOf('id') === 0) saved = 'id';
+  if (saved === 'id') setLang('id');
+
+  /* ── header island: collapses on scroll down, springs back on scroll up ──
+        Ported from the Framer Motion pattern; same thresholds, no dependencies. */
+  var island  = document.getElementById('island');
+  var openBtn = island.querySelector('.isl-open');
+  var panels  = island.querySelectorAll('.isl-fade');
+  var COLLAPSE_AFTER = 150;   // don't collapse until we're properly into the page
+  var EXPAND_DELTA   = 80;    // scroll back up this far to bring it back
+  var expanded = true, lastY = window.scrollY, collapsedAt = 0;
+
+  function setExpanded(v){
+    if (v === expanded) return;
+    expanded = v;
+    island.classList.toggle('collapsed', !v);
+    openBtn.setAttribute('aria-expanded', String(v));
+    openBtn.tabIndex = v ? -1 : 0;
+    // keep the hidden controls out of the tab order and off the a11y tree
+    panels.forEach(function(p){
+      if (v) p.removeAttribute('inert'); else p.setAttribute('inert','');
+    });
+  }
+
+  function onScroll(){
+    var y = window.scrollY;
+    if (y <= 40)                                                  { setExpanded(true); collapsedAt = 0; }
+    else if (expanded && y > lastY && y > COLLAPSE_AFTER)         { setExpanded(false); collapsedAt = y; }
+    else if (!expanded && y < lastY && collapsedAt - y > EXPAND_DELTA) { setExpanded(true); }
+    lastY = y;
+  }
+  onScroll();
+  window.addEventListener('scroll', onScroll, {passive:true});
+
+  openBtn.addEventListener('click', function(){ setExpanded(true); collapsedAt = 0; });
+  // a keyboard user tabbing into anything inside the pill re-opens it
+  island.addEventListener('focusin', function(){ if (!expanded) setExpanded(true); });
+
+  /* ── reveals (content is visible by default; this only adds lift) ── */
+  if ('IntersectionObserver' in window && !reduced) {
+    var io = new IntersectionObserver(function(es){
+      es.forEach(function(e){ if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, {rootMargin:'0px 0px -12% 0px', threshold:.08});
+    document.querySelectorAll('.rise').forEach(function(el){ io.observe(el); });
+  } else {
+    document.querySelectorAll('.rise').forEach(function(el){ el.classList.add('in'); });
+  }
+
+  /* ── the authored moment: one pulse descends the spine, lighting
+        each module as it passes, and the yield settles into a grid ── */
+  var spine  = document.getElementById('spine');
+  var stages = Array.prototype.slice.call(document.querySelectorAll('[data-stage]'));
+  var yieldEl= document.getElementById('yield');
+
+  if (yieldEl) {
+    Array.prototype.forEach.call(yieldEl.children, function(d, i){
+      d.style.animationDelay = (i % 9) * 45 + Math.floor(i / 9) * 90 + 'ms';
+    });
+    if (reduced) { yieldEl.classList.add('on'); }
+    else if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function(es, o){
+        es.forEach(function(e){ if (e.isIntersecting){ yieldEl.classList.add('on'); o.disconnect(); } });
+      }, {threshold:.3}).observe(yieldEl);
+    } else { yieldEl.classList.add('on'); }
+  }
+
+  if (spine && !reduced) {
+    var chamber = spine.parentElement, ticking = false;
+    function track(){
+      ticking = false;
+      var r = chamber.getBoundingClientRect(), vh = window.innerHeight;
+      var p = (vh * 0.62 - r.top) / r.height;
+      p = Math.max(0, Math.min(1, p));
+      spine.style.setProperty('--p', (p * 100).toFixed(2) + '%');
+      var pulseY = r.top + r.height * p;
+      stages.forEach(function(s){
+        var b = s.getBoundingClientRect();
+        s.classList.toggle('lit', pulseY >= b.top - 40);
+      });
+    }
+    function req(){ if (!ticking){ ticking = true; requestAnimationFrame(track); } }
+    window.addEventListener('scroll', req, {passive:true});
+    window.addEventListener('resize', req);
+    track();
+  } else {
+    stages.forEach(function(s){ s.classList.add('lit'); });
+  }
+
+  /* ── intake particle field: cold traffic drifting into the mouth ── */
+  var cv = document.getElementById('field');
+  if (cv && !reduced) {
+    var ctx = cv.getContext('2d'), parts = [], w = 0, h = 0, dpr = 1, raf = null, alive = true;
+    function size(){
+      dpr = Math.min(window.devicePixelRatio || 1, 2);
+      w = cv.clientWidth; h = cv.clientHeight;
+      cv.width = w * dpr; cv.height = h * dpr;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      var n = Math.round(Math.min(64, Math.max(22, w / 15)));
+      parts = [];
+      for (var i = 0; i < n; i++) parts.push(seed(Math.random() * h));
+    }
+    function seed(y){
+      return {x: Math.random() * w, y: y, v: .16 + Math.random() * .42,
+              r: Math.random() < .16 ? 1.7 : 1.05, a: .18 + Math.random() * .5, d: Math.random() * 6.28};
+    }
+    function draw(){
+      if (!alive) return;
+      ctx.clearRect(0, 0, w, h);
+      var cx = w / 2, mouth = Math.min(w * .5, 118);
+      for (var i = 0; i < parts.length; i++){
+        var p = parts[i];
+        p.y += p.v; p.d += .008;
+        var t = Math.max(0, Math.min(1, p.y / h));
+        // converge toward the mouth as they fall
+        var x = cx + (p.x - cx) * (1 - t * t * .82) + Math.sin(p.d) * 5 * (1 - t);
+        if (p.y > h){ parts[i] = seed(-8); continue; }
+        var fade = t > .82 ? (1 - t) / .18 : 1;
+        ctx.beginPath();
+        ctx.arc(x, p.y, p.r, 0, 6.2832);
+        ctx.fillStyle = 'rgba(155,190,255,' + (p.a * fade).toFixed(3) + ')';
+        ctx.fill();
+      }
+      void mouth;
+      raf = requestAnimationFrame(draw);
+    }
+    size(); draw();
+    window.addEventListener('resize', function(){ size(); });
+    // stop the loop when the hero is off-screen
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function(es){
+        es.forEach(function(e){
+          if (e.isIntersecting && !raf){ alive = true; draw(); }
+          else if (!e.isIntersecting && raf){ alive = false; cancelAnimationFrame(raf); raf = null; }
+        });
+      }, {threshold:0}).observe(cv);
+    }
+  }
+
+  /* ── slideshows: slow dissolve, segmented progress, prev/next ──
+        Every [data-show] becomes its own instance. Frames whose image fails to
+        decode are dropped, so a card degrades cleanly and removes itself if
+        nothing loads at all. */
+  var SLIDE_MS = 5400;
+  var SHOW_LABEL = {
+    en: {play:'Play slideshow',  pause:'Pause slideshow'},
+    id: {play:'Putar slideshow', pause:'Jeda slideshow'}
+  };
+  var relabellers = [];
+
+  function initShow(show){
+    var track  = show.querySelector('.show-track');
+    var toggle = show.querySelector('.show-toggle');
+    var frames = [], timer = null, idx = 0, paused = false;
+
+    function ready(img){ return img && img.complete && img.naturalWidth > 0; }
+
+    function paint(){
+      frames.forEach(function(f, i){
+        f.el.classList.toggle('on', i === idx);
+        f.seg.classList.toggle('on', i === idx);
+        f.seg.setAttribute('aria-selected', String(i === idx));
+      });
+      // restart the fill animation on the active segment
+      var a = frames[idx].seg;
+      a.style.animation = 'none'; void a.offsetWidth; a.style.animation = '';
+    }
+    function schedule(){
+      clearTimeout(timer);
+      if (!paused && frames.length > 1) timer = setTimeout(function(){ go(idx + 1); }, SLIDE_MS);
+    }
+    function go(n){ idx = (n + frames.length) % frames.length; paint(); schedule(); }
+    function relabel(){
+      var l = SHOW_LABEL[document.documentElement.lang] || SHOW_LABEL.en;
+      toggle.setAttribute('aria-label', paused ? l.play : l.pause);
+    }
+    function setPaused(v){
+      paused = v;
+      show.dataset.paused = String(v);
+      relabel();
+      if (v) clearTimeout(timer); else schedule();
+    }
+    relabellers.push(relabel);
+
+    function build(){
+      var live = Array.prototype.filter.call(show.querySelectorAll('.frame'), function(f){
+        if (ready(f.querySelector('img.fg'))) return true;
+        f.remove();               // drop the slot rather than show a broken frame
+        return false;
+      });
+      if (!live.length){ var gone = show.closest('.piece'); if (gone) gone.remove(); return; }
+      frames = live.map(function(el, i){
+        var seg = document.createElement('button');
+        seg.className = 'seg'; seg.type = 'button';
+        seg.setAttribute('role', 'tab');
+        seg.setAttribute('aria-label', 'Slide ' + (i + 1));
+        seg.addEventListener('click', function(){ setPaused(false); go(i); });
+        track.appendChild(seg);
+        return {el: el, seg: seg};
+      });
+      if (frames.length < 2){
+        var ui = show.querySelector('.show-ui'); if (ui) ui.style.display = 'none';
+        show.querySelectorAll('[data-nav]').forEach(function(b){ b.style.display = 'none'; });
+      }
+      paint();
+      toggle.addEventListener('click', function(){ setPaused(!paused); });
+      // stepping through by hand restarts the dwell rather than fighting it
+      show.querySelectorAll('[data-nav]').forEach(function(b){
+        b.addEventListener('click', function(){ go(idx + Number(b.dataset.nav)); });
+      });
+      // arrow keys once any control inside has focus
+      show.addEventListener('keydown', function(e){
+        if (e.key === 'ArrowLeft'){ go(idx - 1); e.preventDefault(); }
+        else if (e.key === 'ArrowRight'){ go(idx + 1); e.preventDefault(); }
+      });
+      if (reduced) { setPaused(true); } else { schedule(); }
+
+      // don't burn timers or paint offscreen
+      if ('IntersectionObserver' in window) {
+        new IntersectionObserver(function(es){
+          es.forEach(function(e){
+            if (e.isIntersecting){ if (!paused) schedule(); }
+            else clearTimeout(timer);
+          });
+        }, {threshold:.15}).observe(show);
+      }
+    }
+
+    // wait for the images to settle (or fail) before deciding what exists
+    var imgs = Array.prototype.slice.call(show.querySelectorAll('.frame img.fg'));
+    var left = imgs.length;
+    if (!left){ var empty = show.closest('.piece'); if (empty) empty.remove(); return; }
+    imgs.forEach(function(img){
+      function done(){ if (--left === 0) build(); }
+      if (img.complete) done();
+      else { img.addEventListener('load', done, {once:true}); img.addEventListener('error', done, {once:true}); }
+    });
+  }
+
+  document.querySelectorAll('[data-show]').forEach(initShow);
+  // the language toggle rewrites labels, so re-apply every instance's after it runs
+  document.querySelectorAll('.lang button').forEach(function(b){
+    b.addEventListener('click', function(){
+      setTimeout(function(){ relabellers.forEach(function(fn){ fn(); }); }, 0);
+    });
+  });
+
+  /* ── video pieces: load on demand, one playing at a time ── */
+  document.querySelectorAll('[data-play]').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var v = btn.previousElementSibling;
+      document.querySelectorAll('.piece-media video').forEach(function(o){
+        if (o !== v && !o.paused){ o.pause(); var b = o.nextElementSibling; if (b) b.style.display = ''; }
+      });
+      if (v.preload !== 'auto'){ v.preload = 'auto'; v.load(); }
+      var play = v.play();
+      if (play && play.catch) play.catch(function(){});
+      btn.style.display = 'none';
+      v.addEventListener('pause', function(){ btn.style.display = ''; }, {once:true});
+      v.setAttribute('controls', '');
+    });
+  });
+})();
+</script>
+</body>
+</html>
